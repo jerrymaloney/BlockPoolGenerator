@@ -1,5 +1,5 @@
 #!/usr/bin/python3.8
-import random, sys, csv
+import random, sys, csv, getopt
 from tabulate import tabulate
 from reportlab.lib import colors
 from reportlab.lib.pagesizes import letter, landscape
@@ -7,9 +7,6 @@ from reportlab.platypus import SimpleDocTemplate, Table, TableStyle, Paragraph
 from reportlab.lib.styles import getSampleStyleSheet
 from reportlab.lib.enums import TA_CENTER
 from textutil import verticalText, fitToSpace
-from reportlab.lib.utils import simpleSplit
-from reportlab.pdfbase.pdfmetrics import stringWidth
-import getopt
 
 
 # read CLI argument
@@ -34,10 +31,10 @@ if inFile=='' or outFile=='':
   exit(-1)
 
 # constants
-TOPTEAMTEXT="PITT"
+TOPTEAMTEXT=""
 TOPTEAMTEXTCOLOR=colors.blue
 TOPTEAMBGCOLOR=colors.yellow
-SIDETEAMTEXT="MICH ST"
+SIDETEAMTEXT=""
 SIDETEAMTEXTCOLOR=colors.white
 SIDETEAMBGCOLOR=colors.green
 BLOCKTEXTCOLOR=colors.black
