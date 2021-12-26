@@ -20,7 +20,6 @@ try:
   opts, args=getopt.getopt(sys.argv[1:], 'i:o:')
 except:
   print('ERROR: %s' % ERROR_MISSINGPARAMS)
-  exit(-1)
 
 for opt, arg in opts:
   if opt=='-i':
