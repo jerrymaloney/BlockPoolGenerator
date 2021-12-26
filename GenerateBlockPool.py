@@ -9,27 +9,6 @@ from reportlab.lib.enums import TA_CENTER
 from textutil import verticalText, fitToSpace
 
 
-# read CLI argument
-ERROR_MISSINGPARAMS='-I infile and -O outfile arguments are required'
-inFile=''
-outFile=''
-try:
-  opts, args=getopt.getopt(sys.argv[1:], 'i:o:')
-except:
-  print('ERROR: %s' % ERROR_MISSINGPARAMS)
-  exit(-1)
-
-for opt, arg in opts:
-  if opt=='-i':
-    inFile=arg
-  elif opt=='-o':
-    outFile=arg
-    if outFile[-4:] != '.pdf':
-      outFile=outFile+'.pdf'
-if inFile=='' or outFile=='':
-  print('ERROR: %s' % ERROR_MISSINGPARAMS)
-  exit(-1)
-
 # constants
 TOPTEAMTEXT=""
 TOPTEAMTEXTCOLOR=colors.blue
@@ -75,6 +54,27 @@ POOLTABLESTYLE=[
   ('SPAN',      (0,0),( 1, 1))
 ]
 
+
+# read CLI argument
+ERROR_MISSINGPARAMS='-I infile and -O outfile arguments are required'
+inFile=''
+outFile=''
+try:
+  opts, args=getopt.getopt(sys.argv[1:], 'i:o:')
+except:
+  print('ERROR: %s' % ERROR_MISSINGPARAMS)
+  exit(-1)
+
+for opt, arg in opts:
+  if opt=='-i':
+    inFile=arg
+  elif opt=='-o':
+    outFile=arg
+    if outFile[-4:] != '.pdf':
+      outFile=outFile+'.pdf'
+if inFile=='' or outFile=='':
+  print('ERROR: %s' % ERROR_MISSINGPARAMS)
+  exit(-1)
 
 # load csv file into a list
 # format of input file must be:
